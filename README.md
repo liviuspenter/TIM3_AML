@@ -1,6 +1,7 @@
 # TIM3 expression in AML
 
-scRNA-seq reanalysis of AML datasets regarding TIM3 expression and its ligands
+Focused scRNA-seq reanalysis of AML datasets with regard to *HAVCR2* (encoding TIM3) expression and its ligands.
+Data needs to be downloaded from NCBI Geo / figshare.
 
 Utilized datasets:
 
