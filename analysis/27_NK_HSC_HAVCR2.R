@@ -27,9 +27,11 @@ df.freq$freq = apply(df.freq, MARGIN = 1, FUN = function(x) {
 
 df.freq$category = paste0(df.freq$dataset, '.', df.freq$meta)
 
+# export for prism
+
 write.table(df.freq %>% filter(predicted.celltype == 'NK') %>%
               arrange(category), file = './data/20230525_NK_cells_per_sample.csv', 
-            sep = '\t', quote = F)
+            sep = '\t', quote = F, row.names = F)
 
 ggplot(df.freq[which(df.freq$predicted.celltype == 'NK'),], 
        aes(x=reorder(category, freq), y=100*freq, color=category)) + 
@@ -60,8 +62,9 @@ df.HAVCR2$category = paste0(df.HAVCR2$dataset, '.', df.HAVCR2$meta)
 # export for prism
 write.table(df.HAVCR2 %>% 
               filter(predicted.celltype == 'HSC') %>%
-              filter(dataset == 'Abbas'), file = './data/20230525_HAVCR2_HSC.csv', 
-            sep = '\t', quote = F)
+              filter(dataset %in% c('Abbas', 'Penter')) %>%
+              arrange(category), file = './data/20230525_HAVCR2_HSC.csv', 
+            sep = '\t', quote = F, row.names = F)
 
 
 ggplot(df.HAVCR2[which(df.HAVCR2$predicted.celltype == 'NK' & df.HAVCR2$dataset %in% c('Penter', 'Abbas')),], 
