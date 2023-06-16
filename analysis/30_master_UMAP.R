@@ -1,6 +1,7 @@
 # plot master UMAP with all datasets integrated
 
 library(dplyr)
+library(ggplot2)
 library(Seurat)
 
 source('./analysis/definitions.R')
